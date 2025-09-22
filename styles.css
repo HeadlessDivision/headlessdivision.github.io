@@ -1,0 +1,177 @@
+:root {
+    --text-color: #FFFFFF;
+    --text-footer: #303033;
+    --sidebar-background: #08080A;
+    --text-hover: #2effc4;
+}
+
+@font-face {
+    font-family: 'Afacad';
+    src: url('/public/fonts/Afacad-Regular.ttf') format('ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Afacad';
+    src: url('/public/fonts/Afacad-Bold.ttf') format('ttf');
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--sidebar-background);
+    color: var(--text-color);
+    font-family: 'Inter', Arial, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 364px 1fr;
+    font-family: "Afacad", sans-serif;
+}
+
+.sidebar {
+    display: grid;
+    height: 100%;
+    padding: 285px 45px 45px 0;
+    place-content: start end;
+    box-sizing: border-box;
+    position: relative;
+    grid-template-rows: auto auto 1fr;
+
+    &::before {
+        content: "";
+        background: white;
+        width: 1px;
+        height: 733px;
+        position: absolute;
+        right: 0px;
+        top: 150px;
+
+    }
+
+    &>.logo {
+        width: 200px;
+        margin-bottom: 20px;
+        transform: translateX(14px);
+        place-self: end;
+    }
+
+    &>nav {
+        display: grid;
+        gap: 20px;
+        justify-content: end;
+        font-size: 24px;
+
+        &>a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s;
+            place-self: center end;
+
+            &:hover {
+                color: var(--text-hover);
+            }
+        }
+
+        &>.socials-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+
+            &>a {
+                height: fit-content;
+                place-self: center end;
+                font-size: 1.1rem;
+
+                &>img {
+                    &:hover {
+                        filter: brightness(0) invert(0.7) sepia(1) hue-rotate(110deg) saturate(5);
+                    }
+
+                    filter: brightness(0) invert(1);
+                    width: 21px;
+                    height: 21px;
+
+                    &.yt-icon {
+                        width: 31px;
+                        height: 31px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    &>.footer {
+        place-self: end;
+        display: grid;
+        gap: 10px;
+        font-size: 16px;
+        color: var(--text-footer);
+
+        &>a {
+            color: var(--text-footer);
+            text-decoration: none;
+        }
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('public/images/gameBackground.png') center center/cover no-repeat;
+    background-color: rgba(0, 0, 0, 83%);
+    background-blend-mode: darken;
+    position: relative;
+
+    .reseed-logo {
+        width: 336px;
+        margin-bottom: 30px;
+    }
+
+    .game-desc {
+        max-width: 604px;
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--text-color);
+        line-height: 150%;
+        font-size: 18px;
+    }
+
+    .steam-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: none;
+        border: 2px solid var(--text-color);
+        color: var(--text-color);
+        padding: 12px 32px;
+        font-size: 1.1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+
+        &>img {
+            filter: brightness(0) invert(1);
+        }
+
+        &:hover {
+            color: var(--text-hover);
+            border: 2px solid var(--text-hover);
+
+            &>img {
+                filter: brightness(0) invert(0.7) sepia(1) hue-rotate(110deg) saturate(5);
+            }
+        }
+
+        &>img {
+            width: 28px;
+            height: 28px;
+        }
+    }
+
+
+}
